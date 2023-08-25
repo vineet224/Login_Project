@@ -30,34 +30,67 @@ function Posts(props){
     const [posts, setPosts] = useState(defaultPosts);
     const [newComment, setNewComment] = useState([]);
 
-    const appClass = `Posts ${(props.isloginModelOpen || props.isRegisterModelOpen) ? 'blur' : ''}`;
+    const [isloginModelOpen, setIsLoginModelOpen ] = useState(false);
+    const [isRegisterModelOpen, setIsRegisterModelOpen ] = useState(false);
+
+    function changeToLogin(event){
+        setIsLoginModelOpen(true);
+        setIsRegisterModelOpen(false);
+    }
+
+    function changeToRegister(event){
+        
+        setIsLoginModelOpen(false);
+        setIsRegisterModelOpen(true);
+    }
+
+    function onRegistration(event){
+        setIsLoginModelOpen(false);
+        setIsRegisterModelOpen(false);
+    }
+
+    function onLogin(event){
+        setIsLoginModelOpen(false);
+        setIsRegisterModelOpen(false);
+    }
+
+    // const appClass = `Posts ${(props.isloginModelOpen || props.isRegisterModelOpen) ? 'blur' : ''}`;
 
     function handleCommentUpdate(event) {
-        //this.setState({value: event.target.value});
-        alert('on new comment ');
         setNewComment(event.target.value);
     }
 
     function handlePost(event) {
         alert('in post ');
-        setLoginModelOpen(true);
+        setIsLoginModelOpen(true);
         setIsRegisterModelOpen(false);
         event.preventDefault();
     }
 
     return(
-        <div className={appClass}>
+        <div className="AllPosts">
             <div>
                 <h1>Hello {props.name}</h1>
-                <Post posts={posts} name={props.name} handleCommentUpdate={handleCommentUpdate} handlePost={handlePost} />
+                <Post posts={posts} name={props.name} handleCommentUpdate={handleCommentUpdate} handlePost={handlePost} newComment={newComment}/>
             </div>
-            <div>
-                {props.isloginModelOpen && <LoginCard onLogin={props.onLogin} changeToRegister={props.changeToRegister} name={props.name} 
-                password={props.password} handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>}
-                {props.isRegisterModelOpen && <RegisterCard onRegistration={props.onRegistration} changeToLogin={props.changeToLogin} 
-                name={props.name} email={props.email} handleEmailChange={props.handleEmailChange}
-                password={props.password} handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>}
-            </div>
+
+            {(isloginModelOpen || isRegisterModelOpen) && (
+                <>
+                <div className="overlay"></div>
+                <div className="login-card">
+                        <div>
+                            {isloginModelOpen && <LoginCard onLogin={onLogin} changeToRegister={changeToRegister} name={props.name} 
+                            password={props.password} handleNameChange={props.handleNameChange} handlePasswordChange={props.handlePasswordChange}/>}
+                            {isRegisterModelOpen && <RegisterCard onRegistration={onRegistration} changeToLogin={changeToLogin} 
+                            name={props.name} email={props.email} handleEmailChange={props.handleEmailChange}
+                            password={props.password} handleNameChange={props.handleNameChange} handlePasswordChange={props.handlePasswordChange}/>}
+                        </div>
+                </div>
+                </>
+            )}
+
+
+           
         </div>
     )
 }

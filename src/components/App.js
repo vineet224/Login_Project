@@ -26,7 +26,6 @@ function App(){
     }
 
     function onRegistration(event){
-        alert("here in change to register");
         setIsLoginModelOpen(false);
         setIsRegisterModelOpen(false);
     }

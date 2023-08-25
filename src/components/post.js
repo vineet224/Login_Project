@@ -1,31 +1,45 @@
 import React, {Component, useState} from 'react' ;
 
-function Post(){
+function Post(props){
 
     return(
-       <div className='Post'>
-        <div>
-            <p>three dots</p>
-        </div>   
+
         <div>
             <div>
-            <p>img</p>
+            <form onSubmit={props.handlePost}>
+                <div>
+                    <label className='lable'>Create Post</label>
+                    <input type='text' placeholder='How are you feeling today?' value={props.newComment} onChange={props.handleCommentUpdate}/>
+                </div>
+                <div>
+                    <input type="submit" value="Post"/>
+                </div>
+            </form>
             </div>
-            <p>text1</p>
-            <p>text2</p>
-        </div>  
-        <div>
-            <div>
-            <p>img</p>
+            <div className='PostTable'>
+                <div>
+                    <p>three dots</p>
+                </div>   
+                <div>
+                    <div>
+                    <p>img</p>
+                    </div>
+                    <p>text1</p>
+                    <p>text2</p>
+                </div>  
+                <div>
+                    <div>
+                    <p>img</p>
+                    </div>
+                    <p>text2</p>
+                </div>  
+                <div>
+                    <div>
+                    <p>img</p>
+                    </div>
+                    <p>text2</p>
+                </div>
             </div>
-            <p>text2</p>
-        </div>  
-        <div>
-            <div>
-            <p>img</p>
-            </div>
-            <p>text2</p>
-        </div>
         </div>
     )
 }
