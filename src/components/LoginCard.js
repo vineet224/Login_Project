@@ -17,7 +17,7 @@ function LoginCard(props){
                 <div>
                     <input type="submit" value="Login now"/>
                 </div>
-                <div className='nav-bar'>
+                <div className='nav-bar' onClick={props.changeToRegister}>
                     <h1>register here</h1>
                 </div>
             </form>

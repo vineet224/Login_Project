@@ -11,16 +11,8 @@ function App(){
     const [password,setPassword]=useState('');
     const [email,setEmail]=useState('');
     
-    const [isloginModelOpen, setIsLoginModelOpen ] = useState('');
-    const [isRegisterModelOpen, setIsRegisterModelOpen ] = useState('');
-
-    // useEffect(()=>{
-    //     const setIsLoginModelOpen = ()=>{
-         
-    //       setIsLoginModelOpen(true)
-    //     }
-    //     setIsLoginModelOpen()
-    //   },[])
+    const [isloginModelOpen, setIsLoginModelOpen ] = useState(true);
+    const [isRegisterModelOpen, setIsRegisterModelOpen ] = useState(false);
 
     function changeToLogin(event){
         setIsLoginModelOpen(true);
@@ -28,11 +20,13 @@ function App(){
     }
 
     function changeToRegister(event){
+        
         setIsLoginModelOpen(false);
         setIsRegisterModelOpen(true);
     }
 
     function onRegistration(event){
+        alert("here in change to register");
         setIsLoginModelOpen(false);
         setIsRegisterModelOpen(false);
     }
@@ -57,35 +51,20 @@ function App(){
         setPassword(event.target.value)
     }
 
-
-    //   return (
-    //     <Router>
-    //         <div>
-    //             <Routes>
-    //                 <Route exact path='/' element={<LoginCard name={name} password={password} 
-    //                 handleNameChange={handleNameChange} handleEmailChange={handleEmailChange} 
-    //                 handleSubmit={handleSubmit} handlePasswordChange={handlePasswordChange}/>} />
-
-    //                 <Route path='/register' element={<RegisterCard name={name} password={password} email={email}
-    //                 handleNameChange={handleNameChange} handleEmailChange={handleEmailChange} 
-    //                 handleSubmit={handleSubmit} handlePasswordChange={handlePasswordChange} />} />
-
-    //                 <Route path='/home' element={Posts}/>
-    //             </Routes>
-    //         </div>
-    //     </Router>
-    //   )
-
-    // return(
-    //     <div className='App'>
-    //             <LoginCard onLogin={onLogin} changeToRegister={changeToRegister} name={name} password={password} 
-    //             handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>
-    //     </div>
-    // )
-
     return (
         <div>
-            <RegisterCard />
+            <div>
+                {isloginModelOpen && <LoginCard onLogin={onLogin} changeToRegister={changeToRegister} name={name} password={password} 
+                handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>}
+
+                {isRegisterModelOpen && <RegisterCard onRegistration={onRegistration} changeToLogin={changeToLogin} name={name} 
+                password={password} email={email} handleEmailChange={handleEmailChange} handleNameChange={handleNameChange} 
+                handlePasswordChange={handlePasswordChange} onLogin={onLogin}/>}
+            </div>
+            {(!isloginModelOpen && !isRegisterModelOpen) && <Posts name={name} email={email} password={password} 
+            isloginModelOpen={isloginModelOpen} isRegisterModelOpen={isRegisterModelOpen}
+            handleEmailChange={handleEmailChange} handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}
+            onLogin={onLogin} onRegistration={onRegistration} changeToLogin={changeToLogin} changeToRegister={changeToRegister}/>}
         </div>
     )
 }
