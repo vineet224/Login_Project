@@ -1,0 +1,11 @@
+/* App.css */
+.Posts {
+    /* Your regular styles for the main content */
+    background: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .Posts.blur {
+    filter: blur(5px); /* Apply blur effect */
+    pointer-events: none; /* Disable interactions with blurred content */
+  }

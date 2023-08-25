@@ -26,6 +26,10 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
+            },
+            {
+                test: /\.css$/, // This is the added rule for CSS files
+                use: ['style-loader', 'css-loader']
             }
         ]
     }

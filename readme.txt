@@ -14,3 +14,15 @@
     //         </form>
     //     </div>
     // )
+
+
+<div>
+                <LoginCard onLogin={onLogin} changeToRegister={changeToRegister} name={name} password={password} 
+                handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>
+                {isRegisterModelOpen && <RegisterCard onRegistration={onRegistration} changeToLogin={changeToLogin} name={name} 
+                password={password} email={email} handleEmailChange={handleEmailChange} handleNameChange={handleNameChange} 
+                handlePasswordChange={handlePasswordChange}/>}
+            </div>
+            {(!isloginModelOpen && !isRegisterModelOpen) && <Posts name={name} email={email} password={password} 
+            handleEmailChange={handleEmailChange} handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}
+            onLogin={onLogin} onRegistration={onRegistration} changeToLogin={changeToLogin} changeToRegister={changeToRegister}/>}
