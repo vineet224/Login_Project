@@ -3,6 +3,7 @@ import LoginCard from './LoginCard';
 import RegisterCard from './registerCard';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Posts from './Posts';
+import '../index.css';
 
 
 function App(){
@@ -50,6 +51,32 @@ function App(){
         setPassword(event.target.value)
     }
 
+//     return (<h1 class= "font-thin underline">
+//     Hello world!
+//   </h1>)
+
+    // return (
+    // <div class="pt-6 text-center space-y-4">
+    //   <blockquote>
+    //     <p class="text-lg font-serif underline">
+    //       “Tailwind CSS is the only framework that I've seen scale
+    //       on large teams. It’s easy to customize, adapts to any design,
+    //       and the build size is tiny.”
+    //     </p>
+    //   </blockquote>
+    //   <figcaption class="font-medium">
+    //     <div class="text-sky-500 dark:text-sky-400">
+    //       Sarah Dayan
+    //     </div>
+    //     <div class="text-slate-700 dark:text-slate-500">
+    //       Staff Engineer, Algolia
+    //     </div>
+    //   </figcaption>
+    // </div>)
+  
+    // return(<div>
+    //     <img src='https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt=''/>
+    // </div>)
     return (
         <div>
             <div>

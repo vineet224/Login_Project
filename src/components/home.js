@@ -1,4 +1,5 @@
 import React, {Component, useState} from 'react' ;
+import "../index.css";
 
 function Home()
 {

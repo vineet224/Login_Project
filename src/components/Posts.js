@@ -2,7 +2,7 @@ import React, {Component, useState} from 'react' ;
 import Post from './post';
 import RegisterCard from './registerCard';
 import LoginCard from './LoginCard';
-import '../css/posts.css'
+import "../index.css";
 
 
 const defaultPosts = [
@@ -68,7 +68,7 @@ function Posts(props){
     }
 
     return(
-        <div className="AllPosts">
+        <div className="bg-yellow-500 border-4 rounded-md border-blue-600">
             <div>
                 <h1>Hello {props.name}</h1>
                 <Post posts={posts} name={props.name} handleCommentUpdate={handleCommentUpdate} handlePost={handlePost} newComment={newComment}/>
@@ -76,8 +76,8 @@ function Posts(props){
 
             {(isloginModelOpen || isRegisterModelOpen) && (
                 <>
-                <div className="overlay"></div>
-                <div className="login-card">
+                <div className="container"></div>
+                <div className="container absolute bg-gray-800 w-60 border-8 border-red-600">
                         <div>
                             {isloginModelOpen && <LoginCard onLogin={onLogin} changeToRegister={changeToRegister} name={props.name} 
                             password={props.password} handleNameChange={props.handleNameChange} handlePasswordChange={props.handlePasswordChange}/>}
@@ -88,9 +88,6 @@ function Posts(props){
                 </div>
                 </>
             )}
-
-
-           
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React, {Component, useState} from 'react' ;
 import { BrowserRouter as Router, Switch, Route, Link, Routes } from 'react-router-dom';
+import "../index.css";
 
 function RegisterCard(props){
 

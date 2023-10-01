@@ -29,7 +29,7 @@ module.exports = {
             },
             {
                 test: /\.css$/, // This is the added rule for CSS files
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader', 'postcss-loader']
             }
         ]
     }
