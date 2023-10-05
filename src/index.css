@@ -3,3 +3,8 @@
 @import 'tailwindcss/utilities';
 
 /* Your custom CSS goes here */
+
+
+.blur-sm {
+    filter: blur(4px); /* You can adjust the blur intensity as needed */
+  }

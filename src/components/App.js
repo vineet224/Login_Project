@@ -77,8 +77,9 @@ function App(){
     // return(<div>
     //     <img src='https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt=''/>
     // </div>)
+    
     return (
-        <div>
+        <div className='min-h-screen flex items-center justify-center border-8 border-black'>
             <div>
                 {isloginModelOpen && <LoginCard onLogin={onLogin} changeToRegister={changeToRegister} name={name} password={password} 
                 handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>}
@@ -88,9 +89,7 @@ function App(){
                 handlePasswordChange={handlePasswordChange} onLogin={onLogin}/>}
             </div>
             {(!isloginModelOpen && !isRegisterModelOpen) && <Posts name={name} email={email} password={password} 
-            isloginModelOpen={isloginModelOpen} isRegisterModelOpen={isRegisterModelOpen}
-            handleEmailChange={handleEmailChange} handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}
-            onLogin={onLogin} onRegistration={onRegistration} changeToLogin={changeToLogin} changeToRegister={changeToRegister}/>}
+            handleEmailChange={handleEmailChange} handleNameChange={handleNameChange} handlePasswordChange={handlePasswordChange}/>}
         </div>
     )
 }
